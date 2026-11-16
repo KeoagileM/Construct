@@ -11,6 +11,7 @@
     app:cardBackgroundColor="#F8FAFC"
     app:cardCornerRadius="16dp"
     app:cardElevation="10dp"
+    app:strokeColor="#FFFFFF"
     >
 
     <RelativeLayout
@@ -28,20 +29,28 @@
             android:orientation="horizontal">
 
             <!-- Main Company Logo -->
-            <ImageView
-                android:id="@+id/imgMainLogo"
+            <!-- Dual-Layer Logo Container -->
+            <FrameLayout
                 android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="Company logo"
-                android:scaleType="fitCenter"
-                android:src="@drawable/logo_inner" />
+                android:layout_height="48dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="by ROCLA"
-                android:textColor="@color/text_secondary"
-                android:textSize="11sp" />
+                <!-- 1. Outer Rotating Layer -->
+                <ImageView
+                    android:id="@+id/imgLogoOuter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Construct360 Outer Loader"
+                    android:src="@drawable/logo_outer" />
+
+                <!-- 2. Inner Stationary Layer -->
+                <ImageView
+                    android:id="@+id/imgLogoInner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Construct360 Inner Logo"
+                    android:src="@drawable/logo_inner" />
+
+            </FrameLayout>
 
 
         </LinearLayout>
@@ -69,6 +78,7 @@
                 android:focusable="true">
 
                 <ImageView
+
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
@@ -78,6 +88,7 @@
 
                 <!-- Notification Badge -->
                 <TextView
+                    android:id="@+id/tvBadgeCount"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:layout_gravity="top|end"
@@ -94,13 +105,15 @@
 
 
             <!-- User Avatar -->
+            <!-- User Avatar: Initials populated dynamically -->
             <TextView
                 android:id="@+id/tvHeaderAvatar"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_circle_avatar"
                 android:gravity="center"
-                android:text="MM"
+                android:text=""
+                android:contentDescription="User profile"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
                 android:textStyle="bold" />

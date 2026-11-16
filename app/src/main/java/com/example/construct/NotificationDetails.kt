@@ -1,10 +1,11 @@
 package com.example.construct
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -15,19 +16,16 @@ class NotificationDetails : AppCompatActivity() {
     private lateinit var tvDetailDateTime: TextView
     private lateinit var tvDetailMessage: TextView
     private lateinit var tvDetailReadStatus: TextView
-    private lateinit var detailReadIndicator: android.view.View
+    private lateinit var detailReadIndicator: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_notification_details)
 
-
         findViewById<com.google.android.material.button.MaterialButton>(
             R.id.btnBackNotifications
-        ).setOnClickListener {
-            finish()
-        }
+        ).setOnClickListener { finish() }
 
         tvDetailTitle = findViewById(R.id.tvDetailTitle)
         tvDetailSender = findViewById(R.id.tvDetailSender)
@@ -42,27 +40,26 @@ class NotificationDetails : AppCompatActivity() {
             insets
         }
 
-        val notificationId = intent.getStringExtra("notificationId")
+        // Grab data from Intent
+        val title = intent.getStringExtra("title") ?: "Notification"
+        val message = intent.getStringExtra("message") ?: ""
+        val type = intent.getStringExtra("type") ?: "General"
+        val date = intent.getStringExtra("date") ?: ""
 
-        val notification = MockNotificationRepository.notifications.find {
-            it.id == notificationId
-        }
+        // Populate UI
+        tvDetailTitle.text = title
+        tvDetailSender.text = "Category: $type"
+        tvDetailDateTime.text = date
+        tvDetailMessage.text = message
 
-        if (notification != null) {
+        // Since we marked it as read in the previous screen, we always show "Read" here
+        tvDetailReadStatus.text = "Read"
+        tvDetailReadStatus.setTextColor(Color.parseColor("#64748B"))
+        detailReadIndicator.visibility = View.GONE
+    }
 
-            notification.isRead = true
-
-            tvDetailTitle.text = notification.title
-            tvDetailSender.text = "Sent by ${notification.sender}"
-            tvDetailDateTime.text = notification.dateTime
-            tvDetailMessage.text = notification.message
-
-            tvDetailReadStatus.text = "Read"
-            tvDetailReadStatus.setTextColor(
-                "#64748B".toColorInt()
-            )
-
-            detailReadIndicator.visibility = android.view.View.GONE
-        }
+    override fun onResume() {
+        super.onResume()
+        updateHeader()
     }
 }

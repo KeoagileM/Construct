@@ -127,7 +127,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="5">
+            android:weightSum="4">
 
 
 
@@ -146,8 +146,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:contentDescription="Alerts"
                     android:src="@drawable/ic_nav_alerts"
                     app:tint="#FFFFFF" />
@@ -163,35 +163,7 @@
 
             </LinearLayout>
 
-            <!-- Metrics -->
-            <LinearLayout
-                android:id="@+id/navProductivity"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:contentDescription="Metrics"
-                    android:src="@drawable/ic_nav_metrics"
-                    app:tint="#FFFFFF" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Metrics"
-                    android:textColor="#94A3B8"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
 
             <!-- Home -->
             <LinearLayout
@@ -206,8 +178,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:contentDescription="Home"
                     android:src="@drawable/ic_nav_home"
                     app:tint="#FFFFFF" />
@@ -236,8 +208,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:contentDescription="Attendance"
                     android:src="@drawable/ic_nav_attendance"
                     app:tint="#FFFFFF" />
@@ -266,8 +238,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:contentDescription="Leaves"
                     android:src="@drawable/ic_nav_leaves"
                     app:tint="#FFFFFF" />

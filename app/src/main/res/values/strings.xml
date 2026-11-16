@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Construct</string>
+    <string-array name="profile_theme_options">
+        <item>System Default</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="profile_text_size_options">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <string-array name="productivity_units">
+        <item>Blocks</item>
+        <item>Items</item>
+        <item>m²</item>
+        <item>m³</item>
+        <item>Metres</item>
+        <item>Loads</item>
+        <item>Other</item>
+    </string-array>
+
+
 </resources>

@@ -1,11 +1,10 @@
 package com.example.construct
 
-data class Notification (
-
-    val id: String,
+data class Notification(
+    val id: Int,
     val title: String,
-    val sender: String,
-    val dateTime: String,
     val message: String,
-    var isRead: Boolean
+    val type: String?,
+    val dateSent: String?,
+    var isRead: Boolean = false
 )

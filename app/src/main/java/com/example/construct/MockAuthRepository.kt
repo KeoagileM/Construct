@@ -10,7 +10,7 @@ object MockAuthRepository: AuthRepository {
 
     private var currentUser: User? = null
 
-    override fun login(email: String, pass: String): User? {
+    override suspend fun login(email: String, pass: String): User? {
         val user = users.find { it.email.equals(email, ignoreCase = true) }
         if (user != null) {
             currentUser = user
@@ -18,7 +18,7 @@ object MockAuthRepository: AuthRepository {
         return user
     }
 
-    override fun register(
+    override suspend fun register(
         name: String,
         email: String,
         pass: String,

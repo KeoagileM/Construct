@@ -16,6 +16,29 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <!-- Dual-Layer Logo Container -->
+        <FrameLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp">
+
+            <!-- 1. Outer Rotating Layer -->
+            <ImageView
+                android:id="@+id/imgLogoOuter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Construct360 Outer Loader"
+                android:src="@drawable/logo_outer" />
+
+            <!-- 2. Inner Stationary Layer -->
+            <ImageView
+                android:id="@+id/imgLogoInner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Construct360 Inner Logo"
+                android:src="@drawable/logo_inner" />
+
+        </FrameLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,7 +115,7 @@
                             android:id="@+id/tvEmployeeId"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="EMP-SUP-001"
+                            android:text=""
                             android:textColor="@android:color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -128,7 +151,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="KL"
+                            android:text=""
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -139,8 +162,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Kopano Leshope"
-                        android:textColor="@color/text_primary"
+                        android:text="@android:color/white"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>

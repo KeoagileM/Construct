@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@drawable/bg_construction_plan"
     tools:context=".Login">
 
     <LinearLayout
@@ -37,12 +38,14 @@
                 android:src="@drawable/logo_inner" />
 
         </FrameLayout>
+
         <!-- Logo Section -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -60,58 +63,76 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <!-- Form Card -->
+        <!-- Main White Card Container -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:cardBackgroundColor="@color/brand_card_bg"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#F8FAFC"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp"
+            app:strokeColor="@color/black"
             app:strokeWidth="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="540dp"
+                android:background="@drawable/bg_construction_plan_faint"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="24dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Welcome back"
-                    android:textColor="@color/text_primary"
-                    android:textSize="20sp"
+                    android:letterSpacing="0.08"
+                    android:text="WELCOME BACK"
+                    android:textColor="#1E293B"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Sign in to your account to continue"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
+                    android:text="Sign In"
+                    android:textColor="#0F172A"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
 
-                <!-- Email Input Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Access your daily site management tools and reports."
+                    android:textColor="#64748B"
+                    android:textSize="14sp" />
+
+                <!-- Input: Email Address -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/emailInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginTop="12dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
                     android:hint="Email Address"
-                    app:startIconDrawable="@drawable/ic_email"
-                    >
+                    android:textColorHint="#64748B"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="#CBD5E1"
+                    app:startIconDrawable="@drawable/ic_email_outline"
+                    app:startIconTint="#64748B">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress" />
+                        android:inputType="textEmailAddress"
+                        android:textColor="#0F172A" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-
-                <!-- Password Input Field -->
+                <!-- Input: Password -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/passwordInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -119,120 +140,119 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Password"
-                    app:startIconDrawable="@drawable/ic_password"
-                    app:endIconMode="password_toggle">
+                    android:textColorHint="#64748B"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="#CBD5E1"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/ic_lock"
+                    app:startIconTint="#64748B">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword" />
+                        android:inputType="textPassword"
+                        android:textColor="#0F172A" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Sign In Button -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSignIn"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/brand_dark_navy"
-                    android:text="Sign In"
-                    android:textSize="15sp"
-                    app:cornerRadius="8dp" />
-
-                <!-- Demo Credentials Helper Container -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="56dp"
                     android:layout_marginTop="24dp"
-                    android:text="Quick Demo Login (Tap to fill):"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="12sp" />
+                    android:backgroundTint="#1E3A8A"
+                    android:text="Sign In"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="16dp"
+                    app:icon="@drawable/ic_arrow_right"
+                    app:iconGravity="textEnd"
+                    app:iconTint="#FFFFFF" />
 
+                <!-- Divider: OR -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <!-- Employee Quick Fill -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/btnDemoEmployee"
+                    <View
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="1dp"
                         android:layout_weight="1"
-                        android:layout_marginEnd="6dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardBackgroundColor="#F8FAFC"
-                        app:cardCornerRadius="8dp"
-                        app:strokeColor="@color/border_light"
-                        app:strokeWidth="1dp">
+                        android:background="#64748B" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:text="OR CONTINUE WITH"
+                        android:textColor="#64748B"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Employee"
-                                android:textColor="@color/brand_blue_primary"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="kopano@rocla.com"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="10sp" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <!-- Supervisor Quick Fill -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/btnDemoSupervisor"
+                    <View
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="1dp"
                         android:layout_weight="1"
-                        android:layout_marginStart="6dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardBackgroundColor="#F8FAFC"
-                        app:cardCornerRadius="8dp"
-                        app:strokeColor="@color/border_light"
-                        app:strokeWidth="1dp">
+                        android:background="#64748B" />
+                </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                <!-- Single Sign-On (SSO) Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSsoGoogle"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Sign in with Google"
+                    android:textAllCaps="false"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="16dp"
+                    app:icon="@drawable/ic_google"
+                    app:iconGravity="textStart"
+                    app:iconPadding="12dp"
+                    app:iconTint="@null"
+                    app:strokeColor="#1E3A8A"
+                    app:strokeWidth="1dp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Supervisor"
-                                android:textColor="@color/brand_blue_primary"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                <!-- Footer: Register Link -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="supervisor@rocla.com"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="10sp" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Don't have an account? "
+                        android:textColor="#64748B"
+                        android:textSize="13sp" />
 
+                    <TextView
+                        android:id="@+id/tvRegister"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Create Account"
+                        android:textColor="#1D4ED8"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
+
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>

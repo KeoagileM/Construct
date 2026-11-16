@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.set
 import androidx.activity.enableEdgeToEdge
@@ -22,6 +23,9 @@ class EmployeeQR : AppCompatActivity() {
     private lateinit var tvAvatarBadge: TextView
     private lateinit var ivQrCode: ImageView
 
+    private lateinit var session: SessionManager
+    private lateinit var authRepo: AuthRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,6 +38,11 @@ class EmployeeQR : AppCompatActivity() {
         ivQrCode = findViewById(R.id.ivQrCode)
 
 
+
+        session = SessionManager(this)
+        session.restoreToken()
+        authRepo = RemoteAuthRepository(session)
+
         // Get the currently logged-in user
         val user = MockAuthRepository.getCurrentUser()
 
@@ -43,19 +52,60 @@ class EmployeeQR : AppCompatActivity() {
             insets
         }
 
-        if (user != null) {
+        displayEmployeeDetails()
 
-            // Display actual user information
-            tvEmployeeId.text = user.employeeId
-            tvEmployeeName.text = user.name
+    }
 
-            // Generate initials
-            tvAvatarBadge.text = getInitials(user.name)
+    private fun displayEmployeeDetails() {
+        // Retrieve the actual logged-in user
+        val user = authRepo.getCurrentUser()
 
-            // Generate QR code using employee ID
-            ivQrCode.setImageBitmap(generateQrCode(user.employeeId))
+        if (user == null) {
+            ivQrCode.setImageDrawable(null)
+
+            Toast.makeText(
+                this,
+                "No logged-in employee found. Please sign in again.",
+                Toast.LENGTH_LONG
+            ).show()
+
+            return
         }
 
+        val employeeId = user.employeeId.trim()
+
+        if (employeeId.isEmpty()) {
+            ivQrCode.setImageDrawable(null)
+
+            Toast.makeText(
+                this,
+                "Employee ID is missing from your session.",
+                Toast.LENGTH_LONG
+            ).show()
+
+            return
+        }
+
+        // Display actual employee details
+        tvEmployeeId.text = employeeId
+        tvEmployeeName.text = user.name
+        tvAvatarBadge.text = getInitials(user.name)
+
+        // Generate and display QR code
+        try {
+            val qrBitmap = generateQrCode(employeeId)
+            ivQrCode.setImageBitmap(qrBitmap)
+        } catch (e: Exception) {
+            ivQrCode.setImageDrawable(null)
+
+            Toast.makeText(
+                this,
+                "Could not generate QR code.",
+                Toast.LENGTH_LONG
+            ).show()
+
+            e.printStackTrace()
+        }
     }
 
     private fun getInitials(name: String): String {
@@ -95,4 +145,8 @@ class EmployeeQR : AppCompatActivity() {
         return bitmap
     }
 
+    override fun onResume() {
+        super.onResume()
+        updateHeader()
+    }
 }
