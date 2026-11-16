@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Brand Colors -->
+    <color name="brand_dark_navy">#1E293B</color>
+    <color name="brand_navy_header">#0F172A</color>
+    <color name="brand_blue_primary">#2563EB</color>
+    <color name="brand_blue_light">#E0F2FE</color>
+    <color name="brand_bg_light">#F1F5F9</color>
+    <color name="brand_card_bg">#FFFFFF</color>
+
+    <!-- Status Colors -->
+    <color name="status_green_bg">#DCFCE7</color>
+    <color name="status_green_text">#166534</color>
+    <color name="status_yellow_bg">#FEF9C3</color>
+    <color name="status_yellow_text">#854D0E</color>
+    <color name="status_red_bg">#FEE2E2</color>
+    <color name="status_red_text">#991B1B</color>
+
+    <!-- Neutral Colors -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="border_light">#E2E8F0</color>
+</resources>
